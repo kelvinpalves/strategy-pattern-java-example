@@ -14,10 +14,20 @@ import java.math.BigDecimal;
  * @author kelvin
  */
 public class Itau implements CalculadoraDeJurosStrategyInterface {
+    
+    private final BigDecimal VALOR_TETO_SEM_DESCONTO = new BigDecimal(300);
+    private final float TAXA_ALTA = 0.1f;
+    private final float TAXA_BAIXA = 0.2f;
 
     @Override
     public BigDecimal getTaxaDeJuros(Pedido pedido) {
-        return new BigDecimal(0.1);
+        float taxa = TAXA_ALTA; 
+        
+        if (pedido.getValorTotal().compareTo(VALOR_TETO_SEM_DESCONTO) == 1) {
+            taxa = TAXA_BAIXA;
+        }
+        
+        return new BigDecimal(taxa);
     }
     
 }

@@ -29,8 +29,7 @@ public class Pedido {
         String valorComJuros = NumberFormat.getCurrencyInstance().format(valorTotal);
         String valorSemJuros = NumberFormat.getCurrencyInstance().format(this.valorTotal);
         
-        System.out.println("Valor Total do Pedido: " + valorSemJuros);
-        System.out.println("Valor Total do Pedido com Juros: " + valorComJuros);
-        System.out.println("---------------------------------------------------");
+        System.out.println("\t\tValor Total do Pedido: " + valorSemJuros);
+        System.out.println("\t\tValor Total do Pedido com Juros: " + valorComJuros + "\n");
     }
 }
